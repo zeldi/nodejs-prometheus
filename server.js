@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 
     counter.inc();
 
-    res.send('Hello World!')
+    res.send('Hello Openshift')
 })
 
 app.get('/metrics', (req, res) => {
