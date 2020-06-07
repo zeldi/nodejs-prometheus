@@ -18,6 +18,8 @@ const histogram = new client.Histogram({
     bucket: [1,2,5,6,10]
 })
 
+app.use(require('express-status-monitor')())
+
 app.get('/', (req, res) => {
     var start = new Date()
     var simulateTime = 1000
