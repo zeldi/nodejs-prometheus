@@ -5,6 +5,8 @@ const port = 3000
 // Register promitheus-client
 const client =  require('prom-client');
 const collectDefaultMetrics = client.collectDefaultMetrics;
+// Probe every 5th second.
+collectDefaultMetrics({ timeout: 5000 });
 
 const counter = new client.Counter({
     name: 'node_request_operation_total',
@@ -33,6 +35,7 @@ app.get('/', (req, res) => {
 
     res.send('Hello Openshift-v4')
 })
+
 
 app.get('/metrics', (req, res) => {
     res.set('Content-Type', client.register.contentType)
